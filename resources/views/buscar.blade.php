@@ -10,29 +10,24 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                <a class="nav-link active" id="funcionarios-tab" data-toggle="tab"  role="tab" aria-controls="funcionarios" aria-selected="true" href="#funcionarios">Funcionarios</a>
+                <a class="nav-link active" id="funcionarios-tab" data-bs-toggle="tab" data-bs-target="#funcionarios" type="button" role="tab" aria-controls="funcionarios" aria-selected="true">Funcionarios</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                <a class="nav-link" id="equipos-tab" data-toggle="tab"  role="tab" aria-controls="equipos" aria-selected="false" href="#equipos">Equipos</a>
+                <a class="nav-link" id="equipos-tab" data-bs-toggle="tab" data-bs-target="#equipos" type="button" role="tab" aria-controls="equipos" aria-selected="false" >Equipos</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                <a class="nav-link" id="componentes-tab" data-toggle="tab" role="tab" aria-controls="componentes" aria-selected="false" href="#componentes">Componentes</a>
+                <a class="nav-link" id="componentes-tab" data-bs-toggle="tab" data-bs-target="#componentes" type="button" role="tab" aria-controls="componentes" aria-selected="false">Componentes</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                <a class="nav-link" id="sistemas-tab" data-toggle="tab"  role="tab" aria-controls="sistemas" aria-selected="false" href="#sistemas">Sistemas</a>
+                <a class="nav-link" id="sistemas-tab" data-bs-toggle="tab" data-bs-target="#sistemas" type="button"  role="tab" aria-controls="sistemas" aria-selected="false" >Sistemas</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link" id="direccion-tab" data-toggle="tab" href="#direccion" role="tab" aria-controls="direccion" aria-selected="false">Dirección</a>
+                    <a class="nav-link" id="direccion-tab" data-bs-toggle="tab" data-bs-target="#direccion" type="button" role="tab" aria-controls="direccion" aria-selected="false">Dirección</a>
                 </li>
-                
             </ul>
             <br>
             <div class="tab-content" id="contenido">
                 <div class="tab-pane active" role="tabpanel" id="funcionarios"  aria-labelledby="funcionarios-tab">
-                    <div class="form-group">
-                        <input type="text" name="buscadorfuncionarios" id="buscadorfuncionarios" placeholder="Buscar">
-                    </div>
-                    <button>Buscar</button>
                     <div class="form-group">
                         <table id="funcionariostabla" name="funcionariostabla" class="display datos table" style="width:100%">
                             <thead>
@@ -132,9 +127,6 @@
                 </div>
                 <div class="tab-pane" id="sistemas" role="tabpanel"  aria-labelledby="sistemas-tab">
                     <div class="form-group">
-                        <input type="text" name="busquedasistemas" id="busquedasistemas" placeholder="Buscar sistemas registrados">
-                    </div>
-                    <div class="form-group">
                         <table id="sistematabla" name="sistematabla" class=" datos" style="width:100%">
                             <thead>
                                 <tr>
@@ -156,9 +148,6 @@
                     </div>
                 </div>
                 <div class="tab-pane" id="direccion" role="tabpanel"  aria-labelledby="direccion-tab">
-                    <div class="form-group">
-                        <input type="text" name="busquedadireccion" id="busquedadireccion" placeholder="Buscar en direcciones registradas">
-                    </div>
                     <div class="form-group">
                         <table id="direcciontabla" name="direcciontabla" class="datos" style="width:100%">
                             <thead>
