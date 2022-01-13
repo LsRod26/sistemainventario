@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+
 Route::get('/', 'App\Http\Controllers\homecontroller@index')->name('home');
 
 Route::get('/direccion/crear','App\Http\Controllers\direccioncontroller@create')->name('direccion.create');

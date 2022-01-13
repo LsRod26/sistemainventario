@@ -1,9 +1,9 @@
-@extends('layout')
-
 @section('titulo','Buscar')
 
+@extends('layout')
+
 @section('contenido')
-    <div class="container">
+    <div class="container bg-dark">
         <h1 class="display-4">Buscar Elementos registrados en el sistema</h1>
         <form class="bg-white shadow rounded py-3 px-2" method="" enctype="multipart/form-data" action="" data-toggle="validator">
             @csrf
