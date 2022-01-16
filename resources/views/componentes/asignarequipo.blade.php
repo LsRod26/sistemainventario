@@ -3,31 +3,30 @@
 @section('titulo','Asignar Equipo a Componentes')
 
 @section('contenido')
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-sm-10 col-lg-6 mx-auto">
+    <div class="container mt-5"> 
+            <div class="col-8 mx-auto">
                 <h1 class="display-4">Asignar Componente a Equipo</h1>
-                <form class="bg-white shadow rounded py-3 px-2" method="POST" enctype="multipart/form-data" action="{{route('guardar.asignar')}}">
+                <form  method="POST" enctype="multipart/form-data" action="{{route('guardar.asignar')}}">
                     @csrf
+                    <br>
                     <div class="form-group">
-                        <label>Seleccione el tipo de componente a registrar<br></label>
-                        <select name="tipocomponente" id="tipocomponente">
+                        <label>Seleccione el tipo de componente a registrar</label>
+                        <select name="tipocomponente" id="tipocomponente" class="form-select bg-light shadow-sm">
                             <option value="">Seleccione una opción</option>
                             @foreach ($tipocomponentes as $tipo)
                                 <option value="{{$tipo->id}}">{{$tipo->nombre}}</option>
                             @endforeach
                         </select>
                         <br>
-                        <br>
                         <label>Seleccione el componente<br></label>
-                        <select name="componente" id="componente">
+                        <select name="componente" id="componente" class="form-select bg-light shadow-sm">
                             <option value="">Seleccione un componente</option>
                         </select>
                     </div>
                     <br>
                     <div class="form-group">
-                        <label>Seleccione el componente<br></label>
-                        <select name="equipo" id="equipo">
+                        <label>Seleccione el equipo a asignar</label>
+                        <select name="equipo" id="equipo" class="form-select bg-light shadow-sm">
                             <option value="">Seleccione un Equipo</option>
                             @foreach($equipos as $equipo)
                                 <option value="{{$equipo->id}}">{{$equipo->nombre_equipo}}</option>
@@ -40,7 +39,6 @@
                     </div>
                 </form>
             </div>
-        </div>
     </div>
 @endsection
 

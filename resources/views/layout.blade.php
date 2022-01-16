@@ -12,80 +12,74 @@
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
-    <div class="container-fluid d-flex flex-row">
-        <div class="row min-vh-100 flex-column flex-md-row min-vw-25 bg-success">
-            <aside class="col-10 col-md-2 p-0 bg-dark flex-shrink-1">
-                <nav class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start py-2">
-                    <div class="collapse navbar-collapse ">
-                        <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
-                            <li class="nav-item">
-                                <a class="nav-link pl-0 text-nowrap" href={{route('home')}}>
-                                    <span class="d-none d-md-inline">Home</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0 text-nowrap" href={{route('buscar')}}>
-                                    <span class="d-none d-md-inline">Buscar</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0 text-nowrap" href={{route('direccion.create')}}>
-                                    <span class="d-none d-md-inline">Registrar Direcciones</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0 text-nowrap" href={{route('sistema.create')}}>
-                                    <span class="d-none d-md-inline">Registrar Sistemas</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0 text-nowrap" href={{route('funcionario.create')}}>
-                                    <span class="d-none d-md-inline">Registrar Funcionarios</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0 text-nowrap" href={{route('equipo.crear')}}>
-                                    <span class="d-none d-md-inline">Registrar Equipos</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0 text-nowrap" href={{route('tipocomponente.crear')}}>
-                                    <span class="d-none d-md-inline">Registrar Tipo de Componentes</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0 text-nowrap" href={{route('componente.crear')}}>
-                                    <span class="d-none d-md-inline">Registrar Componentes</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0 text-nowrap" href={{route('asignar.funcionariosistema')}}>
-                                    <span class="d-none d-md-inline">Asignar Sistemas a Funcionarios</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0 text-nowrap" href={{route('componente.asignarequipo')}}>
-                                    <span class="d-none d-md-inline">Asignar Componentes a Equipos</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link pl-0 text-nowrap" href={{route('asignar.funcionarioequipo')}}>
-                                    <span class="d-none d-md-inline">Asignar Equipos a Funcionarios</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </aside>
-            
+    <div class="d-flex flex-row">
+        <aside class="min-vh-100 bg-dark">
+            <nav class="navbar navbar-expand navbar-dark bg-dark flex-md-column flex-row align-items-start py-2">
+                <div class="collapse navbar-collapse ">
+                    <ul class="flex-md-column flex-row navbar-nav w-100 justify-content-between">
+                        <li class="nav-item">
+                            <a class="nav-link pl-0 text-nowrap" href={{ route('home') }}>
+                                <span class="d-none d-md-inline">Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0 text-nowrap " href={{ route('buscar') }}>
+                                <span class="d-none d-md-inline">Buscar</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0 text-nowrap" href={{ route('direccion.create') }}>
+                                <span class="d-none d-md-inline">Registrar Direcciones</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0 text-nowrap" href={{ route('sistema.create') }}>
+                                <span class="d-none d-md-inline">Registrar Sistemas</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0 text-nowrap" href={{ route('funcionario.create') }}>
+                                <span class="d-none d-md-inline">Registrar Funcionarios</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0 text-nowrap" href={{ route('equipo.crear') }}>
+                                <span class="d-none d-md-inline">Registrar Equipos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0 text-nowrap" href={{ route('tipocomponente.crear') }}>
+                                <span class="d-none d-md-inline">Registrar Tipo de Componentes</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0 text-nowrap" href={{ route('componente.crear') }}>
+                                <span class="d-none d-md-inline">Registrar Componentes</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0 text-nowrap" href={{ route('asignar.funcionariosistema') }}>
+                                <span class="d-none d-md-inline">Asignar Sistemas a Funcionarios</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0 text-nowrap" href={{ route('componente.asignarequipo') }}>
+                                <span class="d-none d-md-inline">Asignar Componentes a Equipos</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link pl-0 text-nowrap" href={{ route('asignar.funcionarioequipo') }}>
+                                <span class="d-none d-md-inline">Asignar Equipos a Funcionarios</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        <div class="col">
+            @yield('contenido')
+
+            @yield('script')
         </div>
-    @yield('contenido')
-
-    @yield('script')
     </div>
-    
-        
-    
-
-</body>
 </html>

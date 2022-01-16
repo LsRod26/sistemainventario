@@ -4,15 +4,15 @@
 
 @section('contenido')
 
-<div class="row">
-    <div class="col-12 col-sm-10 col-lg-6 mx-auto">
+<div class="container mt-5">
+    <div class="col-8 mx-auto">
         <h1 class="display-4">Asignar Funcionario a Equipo</h1>
-        <form class="bg-white shadow rounded py-3 px-2" method="POST" enctype="multipart/form-data" action="{{route('store.funcionarioequipo')}}">
+        <form  method="POST" enctype="multipart/form-data" action="{{route('store.funcionarioequipo')}}">
             @csrf
             <br>
             <div class="form-group">
                 <label for="selectdireccion">Direcciones registradas</label>
-                <select name="selectdireccion"  id="selectdireccion">
+                <select name="selectdireccion"  id="selectdireccion" class="form-select bg-light shadow-sm">
                     <option value="0">Seleccione una opción</option>
                     @foreach ($listadirecciones as $direcciones)
                         <option value="{{$direcciones->id}}">{{$direcciones->direccion}}</option>
@@ -22,14 +22,14 @@
             <br>
             <div class="form-group">
                 <label>Seleccione un funcionario</label>
-                <select name="selectfuncionario" id="selectfuncionario">
+                <select name="selectfuncionario" id="selectfuncionario" class="form-select bg-light shadow-sm">
                 <option value="0">Seleccione una opcion</option>
                 </select>
             </div>
             <br>
             <div class="form-group">
                 <label>Seleccione un equipo a asignar</label>
-                <select name="selectequipos">
+                <select name="selectequipos" class="form-select bg-light shadow-sm">
                     <option value="">Seleccione una opción</option>
                     @foreach ($listaequipos as $equipo)
                         <option value="{{$equipo->id}}">{{$equipo->nombre_equipo}}</option>
@@ -39,7 +39,7 @@
             <br>
             <div class="form-group">
                 <label>Estado</label>
-                <select name="selectestado">
+                <select name="selectestado" class="form-select bg-light shadow-sm">
                     <option value="">Seleccione una opción</option>
                     <option value="1">ACTIVO</option>
                     <option value="0">INACTIVO</option>

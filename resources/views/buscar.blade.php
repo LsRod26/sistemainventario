@@ -3,29 +3,27 @@
 @extends('layout')
 
 @section('contenido')
-    <div class="container bg-dark">
+    <div class="container justify-content-md-center mx-auto mt-5">
         <h1 class="display-4">Buscar Elementos registrados en el sistema</h1>
-        <form class="bg-white shadow rounded py-3 px-2" method="" enctype="multipart/form-data" action="" data-toggle="validator">
+        <form class="d-flex flex-wrap justify-content-between align-items-start" method="" enctype="multipart/form-data" action="" data-toggle="validator">
             @csrf
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <ul class="nav nav-tabs" style="width: 100%" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                <a class="nav-link active" id="funcionarios-tab" data-bs-toggle="tab" data-bs-target="#funcionarios" type="button" role="tab" aria-controls="funcionarios" aria-selected="true">Funcionarios</a>
+                    <a class="nav-link active" id="funcionarios-tab" data-bs-toggle="tab" data-bs-target="#funcionarios" type="button" role="tab" aria-controls="funcionarios" aria-selected="true">Funcionarios</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                <a class="nav-link" id="equipos-tab" data-bs-toggle="tab" data-bs-target="#equipos" type="button" role="tab" aria-controls="equipos" aria-selected="false" >Equipos</a>
+                    <a class="nav-link " id="equipos-tab" data-bs-toggle="tab" data-bs-target="#equipos" type="button" role="tab" aria-controls="equipos" aria-selected="false" >Equipos</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                <a class="nav-link" id="componentes-tab" data-bs-toggle="tab" data-bs-target="#componentes" type="button" role="tab" aria-controls="componentes" aria-selected="false">Componentes</a>
+                    <a class="nav-link" id="componentes-tab" data-bs-toggle="tab" data-bs-target="#componentes" type="button" role="tab" aria-controls="componentes" aria-selected="false">Componentes</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                <a class="nav-link" id="sistemas-tab" data-bs-toggle="tab" data-bs-target="#sistemas" type="button"  role="tab" aria-controls="sistemas" aria-selected="false" >Sistemas</a>
+                    <a class="nav-link" id="sistemas-tab" data-bs-toggle="tab" data-bs-target="#sistemas" type="button"  role="tab" aria-controls="sistemas" aria-selected="false" >Sistemas</a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <a class="nav-link" id="direccion-tab" data-bs-toggle="tab" data-bs-target="#direccion" type="button" role="tab" aria-controls="direccion" aria-selected="false">Dirección</a>
                 </li>
             </ul>
-            <br>
             <div class="tab-content" id="contenido">
                 <div class="tab-pane active" role="tabpanel" id="funcionarios"  aria-labelledby="funcionarios-tab">
                     <div class="form-group">
@@ -61,7 +59,7 @@
                 </div>
                 <div class="tab-pane" id="equipos" role="tabpanel"  aria-labelledby="equipos-tab">
                     <div class="form-group">
-                        <table id="equipotabla" name="equipotabla" class="datos" style="width:100%">   
+                        <table id="equipotabla" name="equipotabla" class="display datos table" style="width:100%">   
                             <thead>
                                 <tr>
                                     <th>Nombre del equipo</th>
@@ -81,6 +79,7 @@
                                         <td>{{$equipo->ACTIVO}}</td>
                                         <td>{{$equipo->created_at}}</td>
                                         <td>{{$equipo->updated_at}}</td>
+                                        
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -89,7 +88,7 @@
                 </div>
                 <div class="tab-pane" id="componentes" role="tabpanel"  aria-labelledby="componentes-tab">
                     <div class="form-group">
-                        <table id="componentetabla" name="componentetabla" class="datos" style="width:100%">
+                        <table id="componentetabla" name="componentetabla" class="display datos table" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>Codigo del componente</th>
@@ -127,7 +126,7 @@
                 </div>
                 <div class="tab-pane" id="sistemas" role="tabpanel"  aria-labelledby="sistemas-tab">
                     <div class="form-group">
-                        <table id="sistematabla" name="sistematabla" class=" datos" style="width:100%">
+                        <table id="sistematabla" name="sistematabla" class="display datos table" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>Nombre del Sistema</th>
@@ -149,7 +148,7 @@
                 </div>
                 <div class="tab-pane" id="direccion" role="tabpanel"  aria-labelledby="direccion-tab">
                     <div class="form-group">
-                        <table id="direcciontabla" name="direcciontabla" class="datos" style="width:100%">
+                        <table id="direcciontabla" name="direcciontabla" class="display datos table" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>Nombre de la Dirección</th>
