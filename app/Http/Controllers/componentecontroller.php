@@ -94,4 +94,29 @@ class componentecontroller extends Controller
 
     }
 
+    public function editar(Componente $componente){
+        $tipocomponentes = tipo_componente::select('id','nombre')->get();
+        $listaequipos = equipo::select('id', 'nombre_equipo')->get();
+
+        //$comp = tipo_componente::select('nombre')->where('id','=', $componente->id_tipo_componente)->first();
+        //************************************MEJORAR MÉTODO **************************************************************
+        return view('componentes.edit',[
+            'componente'=> $componente,
+            'tipocomponentes'=> $tipocomponentes,
+            'listaequipos'=> $listaequipos,
+            //'comp' => $comp,
+        ]);
+        
+    }
+
+    /*public function update(Componente $componente){
+        $componente->update([
+            'codigo_componente'=>request('codigocomponente'),
+            'id_tipo_componente'=>request('selecttipocomponente'),
+            'id_equipo'=>request('selectequipo'),
+            'marca'=>request('marca'),
+            'serial'=>request('')
+        ]);
+    }*/
+
 }

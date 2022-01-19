@@ -59,6 +59,30 @@ Route::get('/componente/asignarequipo/componentes/{id}','App\Http\Controllers\co
 
 Route::post('/componente/asignarequipo/store','App\Http\Controllers\componentecontroller@storeasignarequipo')->name('guardar.asignar');
 
+Route::get('/buscar/funcionario/{funcionario}/edit','App\Http\Controllers\funcionariocontroller@editar')->name('funcionario.editar');
+
+Route::patch('/buscar/{funcionario}/update','App\Http\Controllers\funcionariocontroller@update')->name('funcionario.update');
+
+Route::get('/buscar/equipo/{equipo}/edit','App\Http\Controllers\equipocontroller@editar')->name('equipo.editar');
+
+Route::patch('/buscar/equipo/{equipo}/update','App\Http\Controllers\equipocontroller@update')->name('equipo.update');
+
+Route::get('/buscar/componente/{componente}/edit','App\Http\Controllers\componentecontroller@editar')->name('componente.edit');
+
+Route::patch('/buscar/componente/{componente}/update','App\Http\Controllers\componentecontroller@update')->name('componente.update');
+
+Route::get('/buscar/sistema/{sistema}/edit','App\Http\Controllers\sistemascontroller@editar')->name('sistemas.edit');
+
+Route::patch('/buscar/sistema/{sistema}/update','App\Http\Controllers\sistemascontroller@update')->name('sistemas.update');
+
+Route::get('/buscar/direccion/{direccion}/edit','App\Http\Controllers\direccioncontroller@edit')->name('direccion.edit');
+
+Route::patch('/buscar/direccion/{direccion}/update','App\Http\Controllers\direccioncontroller@update')->name('direccion.update');
+
+
+
+
+
 
 
 

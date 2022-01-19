@@ -10,7 +10,7 @@
                 <div class = "card border-3 shadow-sm mt-5 mx-auto" style="width: 18rem">
                     <div class="card-body">
                         <h2 class="card-title">{{$item->nombre}}</h2>
-                        <p class="d-flex justify-content-between align-item-center">{{$item->cantidad}}</p>
+                        <p class="card-text">{{$item->cantidad}}</p>
                     </div>
                 </div>
             @empty    

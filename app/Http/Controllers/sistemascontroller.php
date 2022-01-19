@@ -39,4 +39,18 @@ class sistemascontroller extends Controller
         ]);
         return redirect()->route('sistema.create');
     }
+
+    public function editar(Sistema $sistema){
+        return view('sistema.edit',[
+            'sistema'=>$sistema,
+        ]);
+    }
+
+    public function update(Sistema $sistema){
+        $sistema->update([
+            'nombre'=> request('nombresistema'),
+        ]);
+
+        return redirect()->route('buscar');
+    }
 }

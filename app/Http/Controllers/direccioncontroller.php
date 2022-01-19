@@ -25,5 +25,19 @@ class direccioncontroller extends Controller
         return redirect()->route('direccion.create');
     }
 
+    public function edit(direccion $direccion){
+        return view('direccion.edit',[
+            'direccion'=> $direccion,
+        ]);
+    }
+
+    public function update(direccion $direccion){
+        $direccion->update([
+            'direccion'=> request('nombredireccion'),
+            'ACTIVO'=>request('estadodireccion'),
+        ]);
+        return redirect()->route('buscar');
+    }
+
    
 }

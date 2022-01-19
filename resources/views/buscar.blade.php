@@ -30,6 +30,7 @@
                         <table id="funcionariostabla" name="funcionariostabla" class="display datos table" style="width:100%">
                             <thead>
                                 <tr>
+                                    <th>ID</th>
                                     <th>Cédula</th>
                                     <th>Nombres</th>
                                     <th>Dirección</th>
@@ -38,11 +39,13 @@
                                     <th>Estado</th>
                                     <th>Fecha de Creación</th>
                                     <th>Fecha de Actualización</th>
+                                    <th></th>
                                 </tr>
                             </thead>    
                             <tbody>
                                 @foreach ($tfuncionarios as $funcionario)
                                     <tr>
+                                        <td>{{$funcionario->id}}</td>
                                         <td>{{$funcionario->cedula}}</td>
                                         <td>{{$funcionario->nombres}}</td>
                                         <td>{{$funcionario->id_direccion}}</td>
@@ -51,6 +54,7 @@
                                         <td>{{$funcionario->ACTIVO}}</td>
                                         <td>{{$funcionario->created_at}}</td>
                                         <td>{{$funcionario->updated_at}}</td>
+                                        <td> <a class="btn btn-primary btn-lg btn-block" href="{{route('funcionario.editar',$funcionario)}}">Editar</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -68,6 +72,7 @@
                                     <th>Estado</th>
                                     <th>Fecha de Creación</th>
                                     <th>Fecha de Actualización</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -79,7 +84,7 @@
                                         <td>{{$equipo->ACTIVO}}</td>
                                         <td>{{$equipo->created_at}}</td>
                                         <td>{{$equipo->updated_at}}</td>
-                                        
+                                        <td> <a class="btn btn-primary btn-lg btn-block" href="{{route('equipo.editar',$equipo)}}">Editar</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -102,6 +107,7 @@
                                     <th>Pertenece al equipo</th>
                                     <th>Fecha de Creación</th>
                                     <th>Fecha de Actualización</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -118,6 +124,7 @@
                                         <td>{{$componente->id_equipo}}</td>
                                         <td>{{$componente->created_at}}</td>
                                         <td>{{$componente->updated_at}}</td>
+                                        <td> <a class="btn btn-primary btn-lg btn-block" href="{{route('componente.edit',$componente)}}">Editar</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -132,6 +139,7 @@
                                     <th>Nombre del Sistema</th>
                                     <th>Fecha de Creación</th>
                                     <th>Fecha de Actualización</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -140,6 +148,7 @@
                                         <td>{{$sistema->nombre}}</td>
                                         <td>{{$sistema->created_at}}</td>
                                         <td>{{$sistema->updated_at}}</td>
+                                        <td> <a class="btn btn-primary btn-lg btn-block" href="{{route('sistemas.edit',$sistema)}}">Editar</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -155,6 +164,7 @@
                                     <th>Estado</th>
                                     <th>Fecha de Creación</th>
                                     <th>Fecha de Actualización</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -164,6 +174,7 @@
                                         <td>{{$direccion->ACTIVO}}</td>
                                         <td>{{$direccion->created_at}}</td>
                                         <td>{{$direccion->updated_at}}</td>
+                                        <td> <a class="btn btn-primary btn-lg btn-block" href="{{route('direccion.edit',$direccion)}}">Editar</a></td>
                                     </tr>
                                 @endforeach
                             </tbody>

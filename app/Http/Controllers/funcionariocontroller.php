@@ -69,6 +69,26 @@ class funcionariocontroller extends Controller
         
     }
 
+    public function editar(funcionario $funcionario){
+        $listadirecciones = direccion::select('id','direccion')->get();
+        return view('funcionario.edit',[
+            'funcionario'=> $funcionario,
+            'listadirecciones'=> $listadirecciones,
+        ]);
+    }
+
+    public function update(funcionario $funcionario){
+        $funcionario->update([
+            'id_direccion'=> request('selectdireccion'),
+            'cedula'=> request('cedula'),
+            'nombres'=> request('nombresfuncionario'),
+            'cargo'=> request('cargo'),
+            'perfil_navegacion'=> request('perfilnavegacion'),
+            'ACTIVO'=> request('estadofuncionario'),
+        ]);
+        return redirect()->route('buscar');
+    }
+
     
 
 }
