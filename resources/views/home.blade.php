@@ -4,6 +4,7 @@
     
 @section('contenido')
     <div class="container mt-5">
+        
         <h1 class="display-5"> COMPONENTES REGISTRADOS </h1>
         <div class="d-flex flex-wrap justify-content-between align-items-start">
             @forelse ($sistema1 as $item)
@@ -41,7 +42,8 @@
                     <h2 class="card-title">DIRECCIONES</h3>
                     <p class="d-flex justify-content-between align-item-center">{{$direcciones}}</p>
                 </div>
-            </div>       
+            </div>
+                 
         </div>
     </div>
 @endsection

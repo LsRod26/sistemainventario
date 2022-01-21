@@ -26,6 +26,7 @@ class sistemascontroller extends Controller
             'ACTIVO'=>$request->estadofuncionariosistema
         ]);
         return redirect()->route('asignar.funcionariosistema');
+        //return back()->with('status','Sistema Registrado correctamente');
     
     }
 

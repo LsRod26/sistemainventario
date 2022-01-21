@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/', 'App\Http\Controllers\homecontroller@index')->name('home');
 
@@ -78,11 +84,6 @@ Route::patch('/buscar/sistema/{sistema}/update','App\Http\Controllers\sistemasco
 Route::get('/buscar/direccion/{direccion}/edit','App\Http\Controllers\direccioncontroller@edit')->name('direccion.edit');
 
 Route::patch('/buscar/direccion/{direccion}/update','App\Http\Controllers\direccioncontroller@update')->name('direccion.update');
-
-
-
-
-
 
 
 

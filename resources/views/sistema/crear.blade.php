@@ -9,6 +9,11 @@
         <h1 class="display-4">
             Registrar un nuevo sistema
         </h1>
+        
+        @if(session('status'))
+            {{session('status')}}
+        @endif
+
         <form class="py-3 px-2" method="POST" enctype="multipart/form-data" action="{{route('sistema.store')}}">
             @csrf
                
