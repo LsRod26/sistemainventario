@@ -75,15 +75,23 @@
                             <a class="nav-link pl-0 text-nowrap" href={{ route('asignar.funcionarioequipo') }}>
                                 <span class="d-none d-md-inline">Asignar Equipos a Funcionarios</span>
                             </a>
-                        </li>
+                    
                         <li class="nav-item">
-                            <a class="nav-link pl-0 text-nowrap" href="{{route('login')}}">
-                                <span class="d-none d-md-inline">Ingresar al sistema</span>
-                            </a>
+                            <a class="nav-link" href="{{ route('register') }}">Registrar un nuevo usuario</a>
                         </li>
+
+                        <li>
+                            <a class="nav-link pl-0 text-nowrap" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                Cerrar Sesión
+                            </a>
+                        </li> 
+                       
                     </ul>
                 </div>
             </nav>
+            <form id="logout-form" name="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
         </aside>
         <div class="col">
             @yield('contenido')

@@ -18,9 +18,12 @@ use Illuminate\Support\Facades\Auth;
 
 
 Auth::routes();
+//Auth::routes(['register' => false]);
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware'=> 'auth'], function(){
 
+
+    
 Route::get('/', 'App\Http\Controllers\homecontroller@index')->name('home');
 
 Route::get('/direccion/crear','App\Http\Controllers\direccioncontroller@create')->name('direccion.create');
@@ -85,6 +88,8 @@ Route::get('/buscar/direccion/{direccion}/edit','App\Http\Controllers\direccionc
 
 Route::patch('/buscar/direccion/{direccion}/update','App\Http\Controllers\direccioncontroller@update')->name('direccion.update');
 
+
+});
 
 
 

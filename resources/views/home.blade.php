@@ -4,7 +4,9 @@
     
 @section('contenido')
     <div class="container mt-5">
-        
+        @auth
+        <h1 class="display-5"> Bienvenido {{auth()->user()->name}} </h1>
+        @endauth
         <h1 class="display-5"> COMPONENTES REGISTRADOS </h1>
         <div class="d-flex flex-wrap justify-content-between align-items-start">
             @forelse ($sistema1 as $item)
