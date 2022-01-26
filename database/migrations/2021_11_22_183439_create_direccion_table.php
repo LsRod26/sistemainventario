@@ -16,8 +16,9 @@ class CreateDireccionTable extends Migration
         Schema::create('direccion', function (Blueprint $table) {
             $table->id();
             $table->string('direccion');
-            //$table->enum('estado',['ACTIVO','INACTIVO']);
             $table->boolean('ACTIVO');
+            $table->string('registradopor');
+            $table->string('actualizadopor')->nullable(true);
             $table->timestamps();
         });
     }

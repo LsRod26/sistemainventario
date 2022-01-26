@@ -18,11 +18,12 @@ class CreateComponenteTable extends Migration
             $table->string('codigo_componente');
             $table->string('marca');
             $table->string('serial');
-            
             $table->boolean('ACTIVO');
             $table->boolean('tarjeta_red');
             $table->string('ip')->nullable(true);
             $table->string('mac')->nullable(true);
+            $table->string('registradopor');
+            $table->string('actualizadopor')->nullable(true);
             $table->timestamps();
         });
     }

@@ -18,8 +18,10 @@ class CreateEquipoTable extends Migration
             $table->string('nombre_equipo');
             $table->string('tipo');
             $table->string('tipo_conexion');
-            //$table->enum('estado',['ACTIVO','INACTIVO']);
+            
             $table->boolean('ACTIVO');
+            $table->string('registradopor');
+            $table->string('actualizadopor')->nullable(true);
             $table->timestamps();
         });
     }

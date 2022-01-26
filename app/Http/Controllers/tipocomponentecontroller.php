@@ -16,7 +16,8 @@ class tipocomponentecontroller extends Controller
     {
         $request2=strtoupper($request->nombretipocomponente);
         tipo_componente::create([
-            'nombre'=>$request2
+            'nombre'=>$request2,
+            'registradopor'=> auth()->user()->name,
         ]);
 
         return redirect()->route('tipocomponente.crear');

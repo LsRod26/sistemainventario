@@ -23,7 +23,9 @@ class sistemascontroller extends Controller
         funcionario_sistema::create([
             'id_funcionario'=>$FS->id,
             'id_sistema'=>$request->selectsistemas,
-            'ACTIVO'=>$request->estadofuncionariosistema
+            'ACTIVO'=>$request->estadofuncionariosistema,
+            'registradopor'=> auth()->user()->name,
+
         ]);
         return redirect()->route('asignar.funcionariosistema');
         //return back()->with('status','Sistema Registrado correctamente');
@@ -50,6 +52,7 @@ class sistemascontroller extends Controller
     public function update(Sistema $sistema){
         $sistema->update([
             'nombre'=> request('nombresistema'),
+            'actualizadopor'=> auth()->user()->name,
         ]);
 
         return redirect()->route('buscar');

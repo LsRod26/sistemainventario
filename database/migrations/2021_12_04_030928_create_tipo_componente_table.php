@@ -16,6 +16,8 @@ class CreateTipoComponenteTable extends Migration
         Schema::create('tipo_componente', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->string('registradopor');
+            $table->string('actualizadopor')->nullable(true);
             $table->timestamps();
         });
     }

@@ -29,6 +29,7 @@ class funcionariocontroller extends Controller
             'cargo'=>$request->cargo,
             'perfil_navegacion'=>$request->perfilnavegacion,
             'ACTIVO'=>$request->estadofuncionario,
+            'registradopor'=> auth()->user()->name,
         ]);
         return redirect()->route('funcionario.create');
     }
@@ -62,6 +63,7 @@ class funcionariocontroller extends Controller
             'id_funcionario'=>$request->selectfuncionario,
             'id_equipo'=>$request->selectequipos,
             'ACTIVO'=>$request->selectestado,
+            'registradopor'=> auth()->user()->name,
         ]);
 
         return redirect()->route('asignar.funcionarioequipo');
@@ -85,6 +87,8 @@ class funcionariocontroller extends Controller
             'cargo'=> request('cargo'),
             'perfil_navegacion'=> request('perfilnavegacion'),
             'ACTIVO'=> request('estadofuncionario'),
+            'actualizadopor'=> auth()->user()->name,
+
         ]);
         return redirect()->route('buscar');
     }

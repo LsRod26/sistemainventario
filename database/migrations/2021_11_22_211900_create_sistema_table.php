@@ -16,6 +16,8 @@ class CreateSistemaTable extends Migration
         Schema::create('sistema', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
+            $table->string('registradopor');
+            $table->string('actualizadopor')->nullable(true);
             $table->timestamps();
         });
     }

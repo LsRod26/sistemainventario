@@ -17,7 +17,9 @@ class equipocontroller extends Controller
             'nombre_equipo'=>$request->nombreequipo,
             'tipo'=>$request->tipoequipo,
             'tipo_conexion'=>$request->tipoconexion,
-            'ACTIVO'=>0
+            'ACTIVO'=>0,
+            'registradopor'=> auth()->user()->name,
+
         ]);
         return redirect()->route('equipo.crear');
     }
@@ -33,6 +35,8 @@ class equipocontroller extends Controller
             'tipo'=> request('tipoequipo'),
             'tipo_conexion'=> request('tipoconexion'),
             'ACTIVO'=> 1,
+            'actualizadopor'=> auth()->user()->name,
+
         ]);
         return redirect()->route('buscar');
     }

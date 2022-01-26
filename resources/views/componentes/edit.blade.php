@@ -6,7 +6,7 @@
     <div class="container mt-5">
         <div class="col-8">
             <h1 class="display-4">Edite el componente y sus caracteristicas</h1>
-            <form method="POST" enctype="multipart/form-data" action="">
+            <form method="POST" enctype="multipart/form-data" action="{{route('componente.update',$componente)}}">
                 @csrf @method('PATCH')
                 <div class="form-group">
                     <label> Código del componente <br> </label>
@@ -64,26 +64,39 @@
                     <select name="selecttipocomponente" id="selecttipocomponente" class="form-select bg-light shadow-sm">
                         <option value="">Seleccione una opción</option>
                         @foreach ($tipocomponentes as $tipo)
-                        <option value="{{$tipo->nombre}}" {{old('selecttipocomponente', $equipo->id_tipo_componente) == $tipo->id ? 'selected' : '' }}>{{$tipo->nombre}}</option>
+                        <option value="{{$tipo->id}}" {{old('selecttipocomponente', $componente->id_tipo_componente) == $tipo->id ? 'selected' : '' }}>{{$tipo->nombre}}</option>
                         @endforeach
                     </select>
                 </div>
                 <br>
-                <div class="form-group d-none" id="CPU" name="CPU">
-                    <label>Procesador<br></label>
-                    <input type="text" name="procesador" id="procesador" class="form-control bg-light shadow-sm" value="{{$equipo->procesador}}"><br>
+                
+                @if ($a->nombre == 'CPU')
+
+                    <div class="form-group" id="CPU" name="CPU">
+                        <label>Procesador<br></label>
+                    <input type="text" name="procesador" id="procesador" class="form-control bg-light shadow-sm" value="{{$datoscpu->procesador}}"><br>
                     <br>
                     <label>RAM<br></label>
-                    <input type="text" name="ram" id="ram" class="form-control bg-light shadow-sm" value="{{$equipo->ram}}">
+                    <input type="text" name="ram" id="ram" class="form-control bg-light shadow-sm" value="{{$datoscpu->ram}}">
                 </div>
-                <div class="form-group d-none" id="IMPRESORA" name="IMPRESORA" >
-                    <label>¿A color?<br></label>
+
+                
+                    
+                @endif     
+
+                @if ($a->nombre == 'IMPRESORA')
+                    <div class="form-group" id="IMPRESORA" name="IMPRESORA">
+                        <label>¿A color?<br></label>
                     <select name="IMPCOLOR" id="IMPCOLOR" class="form-select bg-light shadow-sm">
                         <option value="">Seleccione una opción</option>
-                        <option value="1" @if(old('IMPCOLOR',$equipo->COLOR) == "1"){{'selected'}}@endif>SI</option>
-                        <option value="0" @if(old('IMPCOLOR',$equipo->COLOR) == "0"){{'selected'}}@endif>NO</option>
+                        <option value="1" @if(old('IMPCOLOR',$componente->COLOR) == "1"){{'selected'}}@endif>SI</option>
+                        <option value="0" @if(old('IMPCOLOR',$componente->COLOR) == "0"){{'selected'}}@endif>NO</option>
                     </select>
                 </div>
+
+                
+  
+                @endif                    
                 <br>
                 <div class="form-group">
                     <button class="btn btn-primary btn-lg btn-block">Guardar</button>
@@ -99,6 +112,7 @@
 @section('script')
 
     <script>
+
         $(document).ready(function(){
             $('#tarjeta_red').on('change', function(){
                 if(this.value === '1'){   
@@ -111,11 +125,15 @@
 
         $(document).ready(function(){
             $('#selecttipocomponente').on('change', function(){
-                if(this.value == 'CPU'){
+                
+                var a = document.getElementById('selecttipocomponente');
+                var strtipo = a.options[a.selectedIndex].text;
+
+                if(strtipo == 'CPU'){
                     $('#IMPRESORA').removeClass('d-block').addClass('d-none');
                     $('#CPU').removeClass('d-none').addClass('d-block');
 
-                }else if (this.value === 'IMPRESORA'){ 
+                }else if (strtipo === 'IMPRESORA'){ 
                     $('#CPU').removeClass('d-block').addClass('d-none');
                     $('#IMPRESORA').removeClass('d-none').addClass('d-block');
                 }

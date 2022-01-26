@@ -20,7 +20,8 @@ class direccioncontroller extends Controller
     {
         direccion::create([
             'direccion' => $request->nombredireccion,
-            'ACTIVO' => $request->estadodireccion
+            'ACTIVO' => $request->estadodireccion,
+            'registradopor' => auth()->user()->name,    
         ]);
         return redirect()->route('direccion.create');
     }
@@ -35,6 +36,7 @@ class direccioncontroller extends Controller
         $direccion->update([
             'direccion'=> request('nombredireccion'),
             'ACTIVO'=>request('estadodireccion'),
+            'actualizadopor'=> auth()->user()->name,
         ]);
         return redirect()->route('buscar');
     }

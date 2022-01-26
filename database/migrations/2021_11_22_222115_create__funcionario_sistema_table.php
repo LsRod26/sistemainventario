@@ -17,8 +17,8 @@ class CreateFuncionarioSistemaTable extends Migration
             $table->id();
             //$table->enum('estado',['ACTIVO','INACTIVO']);
             $table->boolean('ACTIVO');
-            //$table->string('asignacion_realizada_por')->nullable(true);
-            //$table->string('modificacion_realizada_por')->nullable(true);
+            $table->string('registradopor');
+            $table->string('actualizadopor')->nullable(true);
             $table->timestamps();
         });
     }

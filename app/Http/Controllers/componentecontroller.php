@@ -42,6 +42,7 @@ class componentecontroller extends Controller
             'tarjeta_red'=>$request->tarjeta_red,
             'ip'=>$ip,
             'mac'=>$mac,
+            'registradopor'=> auth()->user()->name,
         ]);
 
         
@@ -94,29 +95,112 @@ class componentecontroller extends Controller
 
     }
 
-    public function editar(Componente $componente){
+    /*public function editar(Componente $componente){
+
         $tipocomponentes = tipo_componente::select('id','nombre')->get();
         $listaequipos = equipo::select('id', 'nombre_equipo')->get();
-
-        //$comp = tipo_componente::select('nombre')->where('id','=', $componente->id_tipo_componente)->first();
-        //************************************MEJORAR MÉTODO **************************************************************
+        //dd($componente);   //ME DEVUELVE EL ID DE TIPO_COMPONENTE 
+        $tipocomponente =tipo_componente::select('nombre')->where('id','=',$componente->id_tipo_componente)->first();
+        //dd($tipocomponente); //DEVUELVE EL NOMBRE DEL TIPO DEL COMPONENTE
+        dd($componente);
+        if($tipocomponente->nombre == 'CPU'){
+            $a = componentecpu::select('procesador','ram')->where('id_componenteCPU','=',$componente->id)->first();
+            //dd($a[0]);
+        } elseif ($tipocomponente->nombre == 'IMPRESORA'){
+            $a = componenteimpresora::select('COLOR')->where('id_componenteimpresora','=',$componente->id)->first();
+        }
+        //dd($a);
         return view('componentes.edit',[
             'componente'=> $componente,
             'tipocomponentes'=> $tipocomponentes,
             'listaequipos'=> $listaequipos,
-            //'comp' => $comp,
+            'a'=>$a,
         ]);
         
+    }*/
+
+    public function editar(Componente $componente){
+        $tipocomponentes = tipo_componente::select('id','nombre')->get();
+        $listaequipos = equipo::select('id', 'nombre_equipo')->get();
+
+        //SE OBTIENE EL ID DEL TIPO COMPONENTE
+        //dd($componente);
+
+        $a = tipo_componente::select('nombre')->where('id','=',$componente->id_tipo_componente)->first();
+
+        //dd($a);
+
+        $datoscpu = "";
+        $datosimpresora = "";
+
+        if($a->nombre == 'CPU'){
+            $datoscpu = componentecpu::select('procesador','ram')->where('id_componenteCPU','=',$componente->id)->first();
+            /*return view('componentes.edit',[
+                'componente'=> $componente,
+                'tipocomponentes'=> $tipocomponentes,
+                'listaequipos'=> $listaequipos,
+                'datoscpu' => $datoscpu,
+            ]);*/
+        } elseif ($a->nombre == 'IMPRESORA'){
+            $datosimpresora = componenteimpresora::select('COLOR')->where('id_componenteimpresora','=',$componente->id)->first();
+            /*return view('componentes.edit',[
+                'componente'=> $componente,
+                'tipocomponentes'=> $tipocomponentes,
+                'listaequipos'=> $listaequipos,
+                'datosimpresora' => $datosimpresora,
+            ]);*/
+        } 
+        return view('componentes.edit',[
+            'componente'=> $componente,
+            'tipocomponentes'=> $tipocomponentes,
+            'listaequipos'=> $listaequipos,
+            'datoscpu' => $datoscpu,
+            'datosimpresora'=>$datosimpresora,
+            'a'=>$a,
+        ]);
+
     }
 
-    /*public function update(Componente $componente){
+    public function update(Componente $componente){
+
+        //$tipocomponente = tipo_componente::select('id')->where('nombre','=', $componente->selecttipocomponente)->first();
+
+        //dd($componente);
+
+        
+        
         $componente->update([
             'codigo_componente'=>request('codigocomponente'),
             'id_tipo_componente'=>request('selecttipocomponente'),
             'id_equipo'=>request('selectequipo'),
             'marca'=>request('marca'),
-            'serial'=>request('')
+            'serial'=>request('serial'),
+            'tarjeta_red'=>request('tarjeta_red'),
+            'ip'=>request('ip'),
+            'mac'=>request('mac'),
+            'actualizadopor'=> auth()->user()->name,
         ]);
-    }*/
+
+        $a = tipo_componente::select('nombre')->where('id','=',$componente->id_tipo_componente)->first();
+
+        //dd($a);
+        //dd($componente);
+    
+        if($a->nombre == 'CPU'){
+            $datoscpu = componentecpu::where('id_componenteCPU','=',$componente->id);
+            $datoscpu->update([
+                'procesador'=>request('procesador'),
+                'ram'=>request('ram'),
+            ]);
+
+        } elseif ($a->nombre == 'IMPRESORA'){
+            $datosimp = componenteimpresora::where('id_componenteimpresora' , '=',$componente->id);
+            $datosimp->update([
+                'COLOR'=>request('IMPCOLOR'),
+            ]);
+        } 
+        return redirect()->route('buscar');
+
+    }
 
 }

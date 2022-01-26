@@ -19,8 +19,10 @@ class CreateFuncionarioTable extends Migration
             $table->string('nombres');
             $table->string('cargo');
             $table->string('perfil_navegacion');
-            //$table->enum('estado',['ACTIVO','INACTIVO']);
+            
             $table->boolean('ACTIVO');
+            $table->string('registradopor');
+            $table->string('actualizadopor')->nullable(true);
             $table->timestamps();
         });
     }
