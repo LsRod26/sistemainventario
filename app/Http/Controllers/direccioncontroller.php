@@ -23,7 +23,7 @@ class direccioncontroller extends Controller
             'ACTIVO' => $request->estadodireccion,
             'registradopor' => auth()->user()->name,    
         ]);
-        return redirect()->route('direccion.create');
+        return redirect()->route('direccion.create')->with('status', 'Dirección registrada satisfactoriamente');
     }
 
     public function edit(direccion $direccion){
@@ -38,7 +38,7 @@ class direccioncontroller extends Controller
             'ACTIVO'=>request('estadodireccion'),
             'actualizadopor'=> auth()->user()->name,
         ]);
-        return redirect()->route('buscar');
+        return redirect()->route('buscar')->with('status', 'Actualización registrada satisfactoriamente');
     }
 
    

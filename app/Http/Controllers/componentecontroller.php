@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Componente;
-use App\Models\componentecpu;
+use App\Models\componentepc;
 use App\Models\componenteimpresora;
 use App\Models\equipo;
 use App\Models\tipo_componente;
@@ -50,11 +50,13 @@ class componentecontroller extends Controller
         
         $comp = tipo_componente::select('nombre')->where('id','=',$id->id_tipo_componente)->first();
 
-        if($comp->nombre == 'CPU'){
-            componentecpu::create([
-                'id_componenteCPU'=>$id->id,
+        if($comp->nombre == 'CPU'||'LAPTOP'||'ALLINONE'){
+            componentepc::create([
+                'id_componentepc'=>$id->id,
                 'procesador'=>strtoupper($request->procesador),
-                'ram'=>$request->ram,
+                'ram'=>strtoupper($request->ram),
+                'modelo'=>strtoupper($request->modelo),
+                'discoduro'=>strtoupper($request->discoduro),
             ]);
         } elseif ($comp->nombre == 'IMPRESORA'){
             componenteimpresora::create([
@@ -62,7 +64,7 @@ class componentecontroller extends Controller
                 'COLOR'=>$request->IMPCOLOR,
             ]);
         } 
-        return redirect()->route('componente.crear');
+        return redirect()->route('componente.crear')->with('status', 'Componente registrado satisfactoriamente');
     }
 
     public function asignarequipo(){
@@ -91,7 +93,7 @@ class componentecontroller extends Controller
 
         $componente->save();
 
-        return redirect()->route('asignar.funcionarioequipo');
+        return redirect()->route('asignar.funcionarioequipo')->with('status', 'Asignación registrada satisfactoriamente');
 
     }
 
@@ -134,7 +136,7 @@ class componentecontroller extends Controller
         $datosimpresora = "";
 
         if($a->nombre == 'CPU'){
-            $datoscpu = componentecpu::select('procesador','ram')->where('id_componenteCPU','=',$componente->id)->first();
+            $datoscpu = componentepc::select('procesador','ram')->where('id_componentepc','=',$componente->id)->first();
             /*return view('componentes.edit',[
                 'componente'=> $componente,
                 'tipocomponentes'=> $tipocomponentes,
@@ -186,8 +188,8 @@ class componentecontroller extends Controller
         //dd($a);
         //dd($componente);
     
-        if($a->nombre == 'CPU'){
-            $datoscpu = componentecpu::where('id_componenteCPU','=',$componente->id);
+        if($a->nombre == 'CPU'||'LAPTOP'||'ALLINONE'){
+            $datoscpu = componentepc::where('id_componentepc','=',$componente->id);
             $datoscpu->update([
                 'procesador'=>request('procesador'),
                 'ram'=>request('ram'),
@@ -199,7 +201,7 @@ class componentecontroller extends Controller
                 'COLOR'=>request('IMPCOLOR'),
             ]);
         } 
-        return redirect()->route('buscar');
+        return redirect()->route('buscar')->with('status', 'Actualización registrada satisfactoriamente');
 
     }
 

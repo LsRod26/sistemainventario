@@ -15,11 +15,11 @@ class CreateComponenteTable extends Migration
     {
         Schema::create('componente', function (Blueprint $table) {
             $table->id();
-            $table->string('codigo_componente');
-            $table->string('marca');
-            $table->string('serial');
-            $table->boolean('ACTIVO');
-            $table->boolean('tarjeta_red');
+            $table->string('codigo_componente')->nullable(true);
+            $table->string('marca')->nullable(true);
+            $table->string('serial')->nullable(true);
+            $table->boolean('ACTIVO')->nullable(true);
+            $table->boolean('tarjeta_red')->nullable(true);
             $table->string('ip')->nullable(true);
             $table->string('mac')->nullable(true);
             $table->string('registradopor');

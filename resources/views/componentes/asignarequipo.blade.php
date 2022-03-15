@@ -4,7 +4,7 @@
 
 @section('contenido')
     <div class="container mt-5"> 
-            <div class="col-8 mx-auto">
+            <div class="col-8 ">
                 <h1 class="display-4">Asignar Componente a Equipo</h1>
                 <form  method="POST" enctype="multipart/form-data" action="{{route('guardar.asignar')}}">
                     @csrf

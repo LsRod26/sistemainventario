@@ -94,10 +94,20 @@
             </form>
         </aside>
         <div class="col">
-            @yield('contenido')
 
-            @yield('script')
+            <header>
+                @include('session_status') 
+            </header>
+
+            <main>
+                @yield('contenido')
+
+                @yield('script')
+            </main>
+           
+            
         </div>
+       
     </div>
 
 </body>

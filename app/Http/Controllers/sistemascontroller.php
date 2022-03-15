@@ -10,37 +10,41 @@ use Illuminate\Support\Facades\DB;
 
 class sistemascontroller extends Controller
 {
+    //FUNCIONARIO-SISTEMA
     public function mostrarsistemas(){
         $listasistemas = Sistema::select('id', 'nombre')->get();
-        return view('funcionario.asignarsistema', compact('listasistemas'));
+        $funcionarios = funcionario::select('id','nombres')->get();
+        return view('funcionario.asignarsistema', compact('listasistemas','funcionarios'));
     }
 
-
+    
     public function store(Request $request){
         
-        $FS = funcionario::select('id')->where('cedula','=',$request->cedula)->first();
+        //$FS = funcionario::select('id')->where('cedula','=',$request->cedula)->first();
         
+
         funcionario_sistema::create([
-            'id_funcionario'=>$FS->id,
-            'id_sistema'=>$request->selectsistemas,
+            'id_funcionario'=>$request->funcionario,
+            'id_sistema'=>$request->sistemas,
             'ACTIVO'=>$request->estadofuncionariosistema,
             'registradopor'=> auth()->user()->name,
-
         ]);
-        return redirect()->route('asignar.funcionariosistema');
+        return redirect()->route('asignar.funcionariosistema')->with('status', 'Asignación registrada satisfactoriamente');
         //return back()->with('status','Sistema Registrado correctamente');
     
     }
 
+    //SISTEMA
     public function create(){
         return view('sistema.crear');
     }
 
     public function storesystem(Request $request){
         Sistema::create([
-            'nombre'=>$request->nombresistema
+            'nombre'=>$request->nombresistema,
+            'registradopor'=> auth()->user()->name,
         ]);
-        return redirect()->route('sistema.create');
+        return redirect()->route('sistema.create')->with('status', 'Sistema registrada satisfactoriamente');
     }
 
     public function editar(Sistema $sistema){
@@ -55,6 +59,6 @@ class sistemascontroller extends Controller
             'actualizadopor'=> auth()->user()->name,
         ]);
 
-        return redirect()->route('buscar');
+        return redirect()->route('buscar')->with('status', 'Actualización realizada satisfactoriamente');
     }
 }

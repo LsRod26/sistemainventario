@@ -20,6 +20,6 @@ class tipocomponentecontroller extends Controller
             'registradopor'=> auth()->user()->name,
         ]);
 
-        return redirect()->route('tipocomponente.crear');
+        return redirect()->route('tipocomponente.crear')->with('status', 'Tipo registrado satisfactoriamente');;
     }
 }

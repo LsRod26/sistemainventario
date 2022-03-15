@@ -10,9 +10,9 @@
             Registrar un nuevo sistema
         </h1>
         
-        @if(session('status'))
+        {{-- @if(session('status')) 
             {{session('status')}}
-        @endif
+        @endif--}}
 
         <form class="py-3 px-2" method="POST" enctype="multipart/form-data" action="{{route('sistema.store')}}">
             @csrf

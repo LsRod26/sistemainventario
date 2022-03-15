@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateComponentecpuTable extends Migration
+class CreateComponentepcTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateComponentecpuTable extends Migration
      */
     public function up()
     {
-        Schema::create('componentecpu', function (Blueprint $table) {
+        Schema::create('componentepc', function (Blueprint $table) {
             $table->string('procesador');
             $table->string('ram');
+            $table->string('modelo');
+            $table->string('discoduro');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateComponentecpuTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('componentecpu');
+        Schema::dropIfExists('componentepc');
     }
 }

@@ -18,6 +18,20 @@
                     <input class="form-control bg-light shadow-sm" type="text" name="nombresfuncionario" value='{{$funcionario->nombres}}'>
                 </div>
                 <br>
+                
+                <div class="form-group">
+                    <label>Equipo Asignado</label>
+                    {{-- <input class="form-control bg-light shadow-sm" type="text" name="cargo" value='{{$nombreequipo->nombre_equipo}}'> --}}
+                    <select name="equipos" id="equipos" class="form-select bg-light shadow-sm">
+                        <option value="{{$equipo->id_equipo}}">{{$nombreequipo->nombre_equipo}}</option>
+                        <option value="">Sin Asignar</option>
+                        @foreach ($listaequipos as $lequipos)
+                            <option value="{{$lequipos->id}}">{{$lequipos->nombre_equipo}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <br>
+                <br>
                 <div class="form-group">
                     <label>Cargo</label>
                     <input class="form-control bg-light shadow-sm" type="text" name="cargo" value='{{$funcionario->cargo}}'>

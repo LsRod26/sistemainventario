@@ -10,7 +10,7 @@
         <h1 class="display-5"> COMPONENTES REGISTRADOS </h1>
         <div class="d-flex flex-wrap justify-content-between align-items-start">
             @forelse ($sistema1 as $item)
-                <div class = "card border-3 shadow-sm mt-5 mx-auto" style="width: 18rem">
+                <div class = "card border-3 shadow-sm mt-4 mx-auto" style="width: 18rem">
                     <div class="card-body">
                         <h2 class="card-title">{{$item->nombre}}</h2>
                         <p class="card-text">{{$item->cantidad}}</p>

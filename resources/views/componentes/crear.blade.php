@@ -63,7 +63,7 @@
                     <label>Seleccione el tipo de componente<br></label>
                     <select name="selecttipocomponente" id="selecttipocomponente" class="form-select bg-light shadow-sm">
                         <option value="">Seleccione una opción</option>
-                        @foreach ($tipocomponentes as $tipo)
+                        @foreach ($tipocomponentes as $tipo)    
                         <option value="{{$tipo->nombre}}">{{$tipo->nombre}}</option>
                         @endforeach
                     </select>
@@ -75,6 +75,16 @@
                     <br>
                     <label>RAM<br></label>
                     <input type="text" name="ram" id="ram" class="form-control bg-light shadow-sm">
+                    <br>
+                    <label>MODELO<br></label>
+                    <input type="text" name="modelo" id="modelo" class="form-control bg-light shadow-sm">
+                    <br>
+                    <label>DISCO DURO<br></label>
+                    <select name="discoduro" id="discoduro" class="form-select bg-light shadow-sm">
+                        <option value="">Seleccione una opción</option>
+                        <option value="SSD">SSD</option>
+                        <option value="HDD">HDD</option>
+                    </select>
                 </div>
                 <div class="form-group d-none" id="IMPRESORA" name="IMPRESORA" >
                     <label>¿A color?<br></label>
@@ -90,6 +100,8 @@
                 </div>
             </form>
         </div>
+    </div>
+    <div class="container mt-4">
     </div>
 
 @endsection
@@ -110,6 +122,14 @@
         $(document).ready(function(){
             $('#selecttipocomponente').on('change', function(){
                 if(this.value == 'CPU'){
+                    $('#IMPRESORA').removeClass('d-block').addClass('d-none');
+                    $('#CPU').removeClass('d-none').addClass('d-block');
+
+                }else if (this.value === 'LAPTOP'){ 
+                    $('#IMPRESORA').removeClass('d-block').addClass('d-none');
+                    $('#CPU').removeClass('d-none').addClass('d-block');
+
+                }else if (this.value === 'ALLINONE'){ 
                     $('#IMPRESORA').removeClass('d-block').addClass('d-none');
                     $('#CPU').removeClass('d-none').addClass('d-block');
 
